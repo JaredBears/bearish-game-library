@@ -1,9 +1,16 @@
 require "sinatra"
 require "sinatra/reloader"
 
+API_KEY = ENV.fetch("RAWG_KEY")
+
 get("/") do
-  "
-  <h1>Welcome to your Sinatra App!</h1>
-  <p>Define some routes in app.rb</p>
-  "
+  erb(:home)
+end
+
+get("/search?:query") do
+  erb(:search)
+end
+
+get("/wishlist") do
+  erb(:wishlist)
 end
